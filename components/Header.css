@@ -1,0 +1,71 @@
+/* Header component styles (scoped) */
+.header-root{
+  padding:0.25rem 0;
+}
+.header-root img{
+  display:block;
+  max-width:none; /* allow explicit sizing via classes */
+  width:auto;
+  height:auto;
+  object-fit:cover;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,0.06));
+}
+
+/* add an explicit small-logo helper so we can precisely control the displayed size */
+.header-root img.logo-small {
+  width: 172px;   /* desktop */
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .header-root img.logo-small {
+    width: 177px; /* tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .header-root img.logo-small {
+    width: 180px; /* mobile */
+  }
+}
+
+.header-root a{color:var(--text-dark)}
+.header-root a:hover{color:var(--red-brand)}
+.header-root .shadow-sm{box-shadow:0 6px 18px rgba(12,18,24,0.06)}
+.header-root {
+  color: white;
+}
+
+.header-root a {
+  color: white;
+}
+
+.header-root a:hover {
+  color: var(--red-brand);
+}
+
+/* nav-link hover: rounded white bg, black text */
+.header-root .nav-link{
+  padding:0.35rem 0.65rem;
+  border-radius:999px;
+  color:var(--card); /* keep text white on default */
+  transition:all .18s ease;
+}
+.header-root .nav-link:hover{
+  background:#ffffff;
+  color:#000000;
+  box-shadow:0 6px 18px rgba(11,11,11,0.06);
+}
+
+/* phone CTA: stronger hover contrast */
+.header-root .phone-cta{
+  transition:all .18s ease;
+}
+.header-root .phone-cta:hover{
+  background:#ffffff !important;
+  color:#000000 !important;
+  box-shadow:0 8px 22px rgba(11,11,11,0.08);
+  transform:translateY(-2px);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.header-root .phone-cta:hover i{color:inherit}

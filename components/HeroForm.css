@@ -1,0 +1,88 @@
+/* Hero / Quote form scoped styles */
+.hero-quote{
+  padding-top:4.5rem;padding-bottom:3.5rem;background:var(--bg-slate-50);
+}
+.hero-quote .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+.hero-quote h2{font-size:3.25rem;margin:0 0 0.5rem;line-height:1.03}
+.hero-quote h2 .text-red-brand{color:var(--red-brand)}
+.hero-quote p{color:var(--muted);font-size:1.06rem}
+
+.hero-quote .card{
+  background:var(--card);
+  border-radius:22px;
+  padding:2rem;
+  box-shadow:var(--shadow-lg);
+  border:1px solid rgba(15,23,36,0.04);
+  padding-bottom:2.25rem; /* ensure space for buttons */
+  position:relative; z-index:0;
+}
+
+/* decorative rim background behind the hero heading (centered & larger) */
+.hero-quote .rim-bg{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:-80px; /* lift up so heading sits in the center */
+  width:min(900px, 95%);
+  max-width:95%;
+  opacity:0.15; /* slightly stronger */
+  pointer-events:none;
+  z-index:1;
+  filter:grayscale(100%) contrast(0.9) brightness(1);
+}
+
+.hero-quote .content{
+  position:relative;z-index:3;
+  padding-top:90px; /* make room so content sits centered on rim */
+}
+
+/* adjust spacing for mobile */
+@media(max-width:1024px){
+  .hero-quote .rim-bg{top:-60px;width:min(640px,90%);opacity:0.09}
+  .hero-quote .content{padding-top:70px}
+}
+@media(max-width:640px){
+  .hero-quote .rim-bg{top:-40px;width:min(420px,92%);opacity:0.06}
+  .hero-quote .content{padding-top:40px}
+}
+
+/* make the bullet list sit a bit into the rim for visual overlap */
+.hero-quote .features{margin-top:1.5rem;position:relative;z-index:4}
+
+.hero-quote label{display:block;margin-bottom:0.5rem;font-weight:700;color:var(--text-dark)}
+.hero-quote input[type='text'],
+.hero-quote input[type='tel']{
+  width:100%;
+  padding:0.85rem 1rem;
+  border-radius:12px;
+  border:1px solid rgba(15,23,36,0.06);
+  background:#fafafa;
+  outline:none;
+}
+
+/* dropzone styling is applied via utility classes in the component markup */
+
+/* primary button improvements */
+.hero-quote button[type='submit']{
+  background:var(--red-brand);color:white;border-radius:12px;padding:1rem 1.5rem;font-weight:800;box-shadow:0 10px 22px rgba(217,43,34,0.16);font-size:1.05rem;min-height:56px;transition:transform .12s ease;
+}
+.hero-quote button[type='submit']:hover{background:var(--red-brand-dark);transform:translateY(-1px)}
+.hero-quote button[type='submit']:disabled{opacity:0.7}
+.hero-quote button[type='submit']{position:relative;z-index:5}
+
+/* success button */
+.hero-quote .success-button{
+  background:var(--red-brand);color:white;padding:0.9rem 1.25rem;border-radius:999px;font-weight:800;box-shadow:0 8px 18px rgba(12,18,24,0.08);display:inline-block}
+
+.hero-quote .success-card{position:relative;z-index:10}
+
+@media(max-width:1024px){
+  .hero-quote h2{font-size:2.4rem}
+  .hero-quote .container{padding-left:1rem;padding-right:1rem}
+}
+@media(max-width:640px){
+  .hero-quote .container{padding:0 0.75rem}
+  .hero-quote .card{padding:1rem;padding-bottom:2.25rem}
+  .hero-quote button[type='submit']{padding:0.95rem 1.25rem;font-size:1rem;min-height:52px}
+  body{padding-bottom:3.5rem}
+}

@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+:root{
+  /* Monochrome (black & white) theme */
+  --red-brand: #000000; /* primary accent becomes black */
+  --red-brand-dark: #111111;
+  --bg-slate-50: #ffffff; /* pure white background */
+  --text-dark: #0b0b0b; /* near-black text */
+  --muted: #6b6b6b; /* muted greys */
+  --card: #ffffff;
+  --shadow-lg: 0 10px 30px rgba(11, 11, 11, 0.06);
+}
+
+/* Apply grayscale to all images to make the site fully black-and-white. Remove if you want images in color. */
+img{filter:grayscale(0%);}
+
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg-slate-50);
+  color:var(--text-dark);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header moved to components/Header.css - see that file for header-specific styles */
+
+/* Hero / Quote styles moved to components/HeroForm.css - see that file for hero/form styles */
+
+
+/* primary button improvements */
+#quote button[type='submit']{
+  background:var(--red-brand);color:white;border-radius:12px;padding:1rem 1.5rem;font-weight:800;box-shadow:0 10px 22px rgba(217,43,34,0.16);font-size:1.05rem;min-height:56px;transition:transform .12s ease;
+}
+#quote button[type='submit']:hover{background:var(--red-brand-dark);transform:translateY(-1px)}
+#quote button[type='submit']:disabled{opacity:0.7}
+#quote button[type='submit']{position:relative;z-index:5}
+
+/* success button */
+.success-button{
+  background:var(--red-brand);color:white;padding:0.9rem 1.25rem;border-radius:999px;font-weight:800;box-shadow:0 8px 18px rgba(12,18,24,0.08);display:inline-block}
+
+/* ensure the success card is visible above background */
+#quote .success-card{position:relative;z-index:10}
+
+/* Gallery */
+section.py-24{padding-top:6rem;padding-bottom:6rem}
+.grid.grid-cols-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(min-width:768px){.grid.grid-cols-2{grid-template-columns:repeat(4,1fr)}}
+.aspect-square{position:relative;padding-bottom:100%;overflow:hidden}
+.aspect-square img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.aspect-square:hover img{transform:scale(1.08)}
+
+/* Services tweaks */
+#services .rounded-3xl img{transition:transform .6s ease}
+#services .rounded-3xl .p-8{display:flex;flex-direction:column}
+#services .rounded-3xl .p-8 h3{margin-top:0}
+#services .rounded-3xl .p-8 p{margin-bottom:0}
+@media(max-width:768px){
+  #services .h-56{height:12rem}
+}
+
+/* CTA Section */
+section.bg-red-brand{background:linear-gradient(0deg,var(--red-brand),var(--red-brand));}
+section.bg-red-brand h2{color:white}
+section.bg-red-brand p{color:rgba(255,255,255,0.9)}
+section.bg-red-brand a{display:inline-block}
+
+/* Result card */
+#quote .animate-in{transition:all .4s ease}
+
+/* small helpers */
+.text-red-brand{color:var(--red-brand)}
+.font-black{font-weight:900}
+.text-xs{font-size:0.75rem}
+.text-sm{font-size:0.875rem}
+.text-xl{font-size:1.125rem}
+.mt-2{margin-top:0.5rem}
+.mb-6{margin-bottom:1.5rem}
+
+/* Footer spacing */
+footer{margin-top:3rem}
+
+/* Make inputs and buttons accessible focus styles */
+input:focus,button:focus{outline:3px solid rgba(217,43,34,0.12);outline-offset:2px}
+
+/* Small screen adjustments */
+@media(max-width:1024px){
+  #quote h2{font-size:2.4rem}
+  header img{width:220px}
+  #quote .max-w-7xl{padding-left:1rem;padding-right:1rem}
+}
+
+@media(max-width:640px){
+  #quote .max-w-7xl{padding:0 0.75rem}
+  header img{width:140px}
+  header .shadow-sm{box-shadow:0 6px 14px rgba(12,18,24,0.06)}
+  #quote .bg-white.rounded-3xl{padding:1rem;padding-bottom:2.25rem}
+  #quote button[type='submit']{padding:0.95rem 1.25rem;font-size:1rem;min-height:52px}
+  /* give the CTA more breathing room on small screens so it's not cut off */
+  body{padding-bottom:3.5rem}
+}
